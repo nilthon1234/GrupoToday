@@ -6,21 +6,27 @@ import { Categoria } from '../interface/categoria';
   selector: 'app-index',
   templateUrl: './index.component.html',
   styleUrl: './index.component.css'
+
 })
 export class IndexComponent implements OnInit{
-
   categorias: Categoria[] = [];
-  categoriaNombre: string = 'mas vendida';
+  categoriaNombre: Categoria[] = [];
+  zapatillasNuevas: Categoria[] = [];
+  liquidaciones: Categoria[] = [];//propiedad
+  
+
 
   constructor(
     private categoriaService: CategoriasService
   ) { }
   ngOnInit(): void {
-      this.listarCategorias();
+      this.listarCategoriasMasVendidas();
+      this.listaCategoriaNuevas();
+      this.listarLiquidaciones(); 
   }
 
-  listarCategorias(): void {
-    this.categoriaService.getCategoriasPorNombre(this.categoriaNombre).subscribe(
+  listarCategoriasMasVendidas(): void {
+    this.categoriaService.getZapatillasMasVendidas().subscribe(
       (data: Categoria[]) => {
         this.categorias = data;
       },
@@ -29,5 +35,27 @@ export class IndexComponent implements OnInit{
       }
     );
   }
+  listaCategoriaNuevas(): void {
+    this.categoriaService.getZapatillasNuevas().subscribe(
+      (data: Categoria[]) => {
+        this.zapatillasNuevas = data;
+      },
+      error => {
+        console.error('Error al obtener las categorías:', error);
+      }
+    );
+  }
+  listarLiquidaciones(): void {
+    this.categoriaService.getZapatillasLiquidaciones().subscribe(
+      (data: Categoria[]) => {
+        this.liquidaciones = data;
+      },
+      error => {
+        console.error('Error al obtener las categorías:', error);
+      }
+    );
+  }
+
+  
 
 }
