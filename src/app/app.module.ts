@@ -13,6 +13,7 @@ import { ZapatillasComponent } from './zapatillas/zapatillas.component';
 import { NikeComponent } from './pag-marcas/nike/nike.component';
 import { RebookComponent } from './pag-marcas/rebook/rebook.component';
 import { NbComponent } from './pag-marcas/nb/nb.component';
+import { AdidasComponent } from './pag-marcas/adidas/adidas.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NbComponent } from './pag-marcas/nb/nb.component';
     NikeComponent,
     RebookComponent,
     NbComponent,
+    AdidasComponent,
   ],
   imports: [
     BrowserModule,
