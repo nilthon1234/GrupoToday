@@ -1,113 +1,170 @@
-<body>
-  <nav class="navbar navbar-dark bg-dark fixed-top">
-    <div class="container-fluid">
-      <h1 style="color: rgb(32, 199, 32); font-size: 28px">Grupo Today</h1>
-      <a class="navbar-brand" routerLink="/">Index</a>
-      <a class="navbar-brand" routerLink="/zapatillas">Zapatillas</a>
-      <a class="navbar-brand" routerLink="/carrito">Carrito</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasDarkNavbar"
-        aria-controls="offcanvasDarkNavbar"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div
-        class="offcanvas offcanvas-end text-bg-dark"
-        tabindex="-1"
-        id="offcanvasDarkNavbar"
-        aria-labelledby="offcanvasDarkNavbarLabel"
-      >
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
-            Dark offcanvas
-          </h5>
-          <button
-            type="button"
-            class="btn-close btn-close-white"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <h1 class="company-name">
+          <span class="company-name-part1">Grupo</span>
+          <span class="company-name-part2">Today</span>
+        </h1>
+        <a class="navbar-brand" routerLink="/" routerLinkActive="active-link">Index</a>
+        <a class="navbar-brand" routerLink="/zapatillas" routerLinkActive="active-link">Zapatillas</a>
+        <a class="navbar-brand" routerLink="/carrito" routerLinkActive="active-link">Carrito</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="offcanvas"
+          data-bs-target="#offcanvasDarkNavbar"
+          aria-controls="offcanvasDarkNavbar"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="offcanvas offcanvas-end text-bg-dark"
+          tabindex="-1"
+          id="offcanvasDarkNavbar"
+          aria-labelledby="offcanvasDarkNavbarLabel"
+        >
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
+              Dark offcanvas
+            </h5>
+            <button
+              type="button"
+              class="btn-close btn-close-white"
+              data-bs-dismiss="offcanvas"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+              <li class="nav-item">
+                <a
+                  class="nav-link active"
+                  aria-current="page"
+                  routerLink="/admin"
+                  >Admin</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Dropdown
+                </a>
+                <ul class="dropdown-menu dropdown-menu-dark">
+                  <li><a class="dropdown-item" href="#">Action</a></li>
+                  <li><a class="dropdown-item" href="#">Another action</a></li>
+                  <li>
+                    <hr class="dropdown-divider" />
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+            <form class="d-flex mt-3" role="search">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+              />
+              <button class="btn btn-success" type="submit">Search</button>
+            </form>
+          </div>
         </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" routerLink="/admin"
-                >Admin</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <form class="d-flex mt-3" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-success" type="submit">Search</button>
-          </form>
+      </div>
+    </nav>
+
+    <div class="d-flex justify-content-center mt-5">
+      <img class="portada-img" src="assets/Grupo.jpg" alt="atsss" />
+    </div>
+
+    <div class="container mt-5">
+      <h1 class="company-name">
+        <span class="company-name-part1">Zapatillas</span>
+        <span style="position: relative">&nbsp;</span>
+        <span class="company-name-part2">Nuevas</span>
+      </h1>
+      <div class="row">
+        <div
+          class="col-md-4 col-sm-6"
+          *ngFor="let zapatilla of zapatillasNuevas"
+        >
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title">{{ zapatilla.nombreZapatilla }}</h3>
+              <p class="card-text">
+                Descripción: {{ zapatilla.descriptionZapatilla }}
+              </p>
+              <p class="card-text">Marca: {{ zapatilla.marcaZapatilla }}</p>
+              <p class="card-text">Precio: {{ zapatilla.precioZapatilla }}</p>
+              <p class="card-text">Stock: {{ zapatilla.stockZapatilla }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="company-name">
+        <span class="company-name-part1">Zapatillas</span>
+        <span style="position: relative">&nbsp;</span>
+        <span class="company-name-part1">Mas</span>
+        <span style="position: relative;">&nbsp;</span>
+        <span class="company-name-part2">Vendidas</span>
+      </h1>
+      <div class="row">
+        <div class="col-md-4 col-sm-6" *ngFor="let mv of categorias">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title">{{ mv.nombreZapatilla }}</h3>
+              <p class="card-text">Categoría: {{ mv.nombreCategoria }}</p>
+              <p class="card-text">
+                Descripción: {{ mv.descriptionZapatilla }}
+              </p>
+              <p class="card-text">Marca: {{ mv.marcaZapatilla }}</p>
+              <p class="card-text">Precio: {{ mv.precioZapatilla }}</p>
+              <p class="card-text">Stock: {{ mv.stockZapatilla }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="company-name">
+        <span class="company-name-part1">Zapatillas</span>
+        <span style="position: relative">&nbsp;</span>
+        <span class="company-name-part2">En</span>
+        <span style="position: relative;">&nbsp;</span>
+        <span class="company-name-part2">Liquidaciones</span>
+      </h1>
+      <div class="row">
+        <div class="col-md-4 col-sm-6" *ngFor="let d of liquidaciones">
+          <div class="card mb-4">
+            <div class="card-body">
+              <h3 class="card-title">{{ d.nombreZapatilla }}</h3>
+              <p class="card-text">Categoría: {{ d.nombreCategoria }}</p>
+              <p class="card-text">Descripción: {{ d.descriptionZapatilla }}</p>
+              <p class="card-text">Marca: {{ d.marcaZapatilla }}</p>
+              <p class="card-text">Precio: {{ d.precioZapatilla }}</p>
+              <p class="card-text">Stock: {{ d.stockZapatilla }}</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-  </nav>
-
-  <img class="portada-img" src="assets/Grupo.jpg" alt="atsss" />
-
-  <div class="container mt-5">
-    <h2>Zapatillas Nuevas</h2>
-    <div *ngFor="let zapatilla of zapatillasNuevas">
-      <h3>{{ zapatilla.nombreZapatilla }}</h3>
-      <p>Descripción: {{ zapatilla.descriptionZapatilla }}</p>
-      <p>Marca: {{ zapatilla.marcaZapatilla }}</p>
-      <p>Precio: {{ zapatilla.precioZapatilla }}</p>
-      <p>Stock: {{ zapatilla.stockZapatilla }}</p>
-    </div>
-    <!--
-    <h2>Zapatillas Mas Vendidas</h2>
-    <div *ngFor="let mv of categorias">
-      <h3>{{ mv.nombreZapatilla }}</h3>
-      <p>Categoria: {{ mv.nombreCategoria }}</p>
-      <p>Descripción: {{ mv.descriptionZapatilla }}</p>
-      <p>Marca: {{ mv.marcaZapatilla }}</p>
-      <p>Precio: {{ mv.precioZapatilla }}</p>
-      <p>Stock: {{ mv.stockZapatilla }}</p>
-    </div>
-
-    <h2>Zapatillas liquidaciones</h2>
-    <div *ngFor="let d of liquidaciones">
-      <h3>{{ d.nombreZapatilla }}</h3>
-      <p>Categoría: {{ d.nombreCategoria }}</p>
-      <p>Descripción: {{ d.descriptionZapatilla }}</p>
-      <p>Marca: {{ d.marcaZapatilla }}</p>
-      <p>Precio: {{ d.precioZapatilla }}</p>
-      <p>Stock: {{ d.stockZapatilla }}</p>
-    </div> -->
-  </div>
-</body>
+  </body>
+</html>

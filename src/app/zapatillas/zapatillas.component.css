@@ -1,0 +1,45 @@
+
+
+.company-name {
+    font-size: 28px;
+  }
+  
+  .company-name-part1 {
+    color: rgb(97, 125, 185);
+  }
+  
+  .company-name-part2 {
+    color: rgb(185, 97, 141);
+  }
+  
+  ul{
+    margin-top: 60px;
+  }
+
+  /* Asegúrate de que el ul utilice flexbox */
+.nav {
+  display: flex;
+}
+
+/* Estilos para la primera mitad del menú */
+.nav-item:nth-child(1),
+.nav-item:nth-child(2) {
+  background-color: #4895cc; /* Color de fondo para la primera mitad */
+  flex: 1; /* Distribuye el espacio de forma equitativa */
+  text-align: center; /* Centra el texto */
+}
+
+/* Estilos para la segunda mitad del menú */
+.nav-item:nth-child(3),
+.nav-item:nth-child(4) {
+  background-color: #ff3bd5; /* Color de fondo para la segunda mitad */
+  flex: 1; /* Distribuye el espacio de forma equitativa */
+  text-align: center; /* Centra el texto */
+}
+
+/* Estilos generales para los enlaces del menú */
+.nav-link {
+  color: inherit; /* Mantén el color del texto original */
+  text-decoration: none; /* Asegúrate de que los enlaces no tengan subrayado predeterminado */
+  padding: 10px; /* Ajusta el espacio alrededor del texto */
+}

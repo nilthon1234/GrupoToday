@@ -10,13 +10,19 @@ import { ToastrModule} from 'ngx-toastr';
 import { HttpClientModule } from '@angular/common/http';
 import { CarritoComponent } from './carrito/carrito.component';
 import { ZapatillasComponent } from './zapatillas/zapatillas.component';
+import { NikeComponent } from './pag-marcas/nike/nike.component';
+import { RebookComponent } from './pag-marcas/rebook/rebook.component';
+import { NbComponent } from './pag-marcas/nb/nb.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IndexComponent,
     CarritoComponent,
-    ZapatillasComponent
+    ZapatillasComponent,
+    NikeComponent,
+    RebookComponent,
+    NbComponent,
   ],
   imports: [
     BrowserModule,

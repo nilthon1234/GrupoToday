@@ -13,6 +13,8 @@ export class IndexComponent implements OnInit{
   categoriaNombre: Categoria[] = [];
   zapatillasNuevas: Categoria[] = [];
   liquidaciones: Categoria[] = [];//propiedad
+
+  currentPage: string = 'index';
   
 
 
