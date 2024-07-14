@@ -8,7 +8,7 @@ import { NikeComponent } from './pag-marcas/nike/nike.component';
 import { RebookComponent } from './pag-marcas/rebook/rebook.component';
 import { NbComponent } from './pag-marcas/nb/nb.component';
 import { AdidasComponent } from './pag-marcas/adidas/adidas.component';
-import { PumaComponent } from './puma/puma.component';
+import { PumaComponent } from './pag-marcas/puma/puma.component';
 
 const routes: Routes = [
   { path: '', component: IndexComponent},

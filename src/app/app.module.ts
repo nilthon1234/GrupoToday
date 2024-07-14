@@ -15,7 +15,7 @@ import { RebookComponent } from './pag-marcas/rebook/rebook.component';
 import { NbComponent } from './pag-marcas/nb/nb.component';
 import { AdidasComponent } from './pag-marcas/adidas/adidas.component';
 import { provideHttpClient, withFetch} from '@angular/common/http';
-import { PumaComponent } from './puma/puma.component';
+import { PumaComponent } from './pag-marcas/puma/puma.component';
 
 @NgModule({
   declarations: [
