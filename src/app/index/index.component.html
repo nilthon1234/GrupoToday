@@ -12,9 +12,21 @@
           <span class="company-name-part1">Grupo</span>
           <span class="company-name-part2">Today</span>
         </h1>
-        <a class="navbar-brand" routerLink="/" routerLinkActive="active-link">Index</a>
-        <a class="navbar-brand" routerLink="/zapatillas" routerLinkActive="active-link">Zapatillas</a>
-        <a class="navbar-brand" routerLink="/carrito" routerLinkActive="active-link">Carrito</a>
+        <a class="navbar-brand" routerLink="/" routerLinkActive="active-link"
+          >Index</a
+        >
+        <a
+          class="navbar-brand"
+          routerLink="/adidas"
+          routerLinkActive="active-link"
+          >Zapatillas</a
+        >
+        <a
+          class="navbar-brand"
+          routerLink="/carrito"
+          routerLinkActive="active-link"
+          >Carrito</a
+        >
         <button
           class="navbar-toggler"
           type="button"
@@ -110,6 +122,9 @@
             <div class="card-body">
               <h3 class="card-title">{{ zapatilla.nombreZapatilla }}</h3>
               <p class="card-text">
+                Categoria: {{ zapatilla.nombreCategoria }}
+              </p>
+              <p class="card-text">
                 Descripción: {{ zapatilla.descriptionZapatilla }}
               </p>
               <p class="card-text">Marca: {{ zapatilla.marcaZapatilla }}</p>
@@ -124,7 +139,7 @@
         <span class="company-name-part1">Zapatillas</span>
         <span style="position: relative">&nbsp;</span>
         <span class="company-name-part1">Mas</span>
-        <span style="position: relative;">&nbsp;</span>
+        <span style="position: relative">&nbsp;</span>
         <span class="company-name-part2">Vendidas</span>
       </h1>
       <div class="row">
@@ -148,7 +163,7 @@
         <span class="company-name-part1">Zapatillas</span>
         <span style="position: relative">&nbsp;</span>
         <span class="company-name-part2">En</span>
-        <span style="position: relative;">&nbsp;</span>
+        <span style="position: relative">&nbsp;</span>
         <span class="company-name-part2">Liquidaciones</span>
       </h1>
       <div class="row">

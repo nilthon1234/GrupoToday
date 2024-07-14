@@ -14,6 +14,8 @@ import { NikeComponent } from './pag-marcas/nike/nike.component';
 import { RebookComponent } from './pag-marcas/rebook/rebook.component';
 import { NbComponent } from './pag-marcas/nb/nb.component';
 import { AdidasComponent } from './pag-marcas/adidas/adidas.component';
+import { provideHttpClient, withFetch} from '@angular/common/http';
+import { PumaComponent } from './puma/puma.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,7 @@ import { AdidasComponent } from './pag-marcas/adidas/adidas.component';
     RebookComponent,
     NbComponent,
     AdidasComponent,
+    PumaComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { AdidasComponent } from './pag-marcas/adidas/adidas.component';
     BrowserAnimationsModule,
   ],
   providers: [
-    provideClientHydration()
+    provideClientHydration(),
+    provideHttpClient(withFetch())// campo agregado por jhon
   ],
   bootstrap: [AppComponent]
 })

@@ -6,7 +6,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './zapatillas.component.html',
   styleUrl: './zapatillas.component.css'
 })
-export class ZapatillasComponent implements OnInit {
+export class ZapatillasComponent  {
 
 private redirectTimeout: any;
   constructor(
@@ -14,13 +14,7 @@ private redirectTimeout: any;
     private route: ActivatedRoute
   ) { }
 
-  ngOnInit(): void {
-    if (this.route.snapshot.routeConfig?.path === 'zapatillas') 
-    {
-      this.redirectTimeout = setTimeout(() => {
-        this.router.navigate(['/adidas']);
-      });
-    }
-  }
+ 
+
 
 }
