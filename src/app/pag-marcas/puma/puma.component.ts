@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MarcasService } from '../service/marcas.service';
-import { Categoria } from '../interface/categoria';
+import { MarcasService } from '../../service/marcas.service';
+import { Categoria } from '../../interface/categoria';
 
 @Component({
   selector: 'app-puma',
