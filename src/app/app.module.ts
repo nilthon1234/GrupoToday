@@ -16,6 +16,8 @@ import { NbComponent } from './pag-marcas/nb/nb.component';
 import { AdidasComponent } from './pag-marcas/adidas/adidas.component';
 import { provideHttpClient, withFetch} from '@angular/common/http';
 import { PumaComponent } from './pag-marcas/puma/puma.component';
+import { AdminIndexComponent } from './admin-index/admin-index.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,13 +30,14 @@ import { PumaComponent } from './pag-marcas/puma/puma.component';
     NbComponent,
     AdidasComponent,
     PumaComponent,
+    AdminIndexComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
 
     HttpClientModule,
-    
+    FormsModule,
 
     ToastrModule.forRoot(),
     BrowserAnimationsModule,

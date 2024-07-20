@@ -6,12 +6,14 @@ import { ZapatillasComponent } from './zapatillas/zapatillas.component';
 import { CarritoComponent } from './carrito/carrito.component';
 import { NikeComponent } from './pag-marcas/nike/nike.component';
 import { RebookComponent } from './pag-marcas/rebook/rebook.component';
-import { NbComponent } from './pag-marcas/nb/nb.component';
 import { AdidasComponent } from './pag-marcas/adidas/adidas.component';
 import { PumaComponent } from './pag-marcas/puma/puma.component';
+import { AdminIndexComponent } from './admin-index/admin-index.component';
 
 const routes: Routes = [
-  { path: '', component: IndexComponent},
+  { path: '', component: IndexComponent
+
+  },
   { path: 'zapatillas', component: ZapatillasComponent},
   { path: 'carrito', component: CarritoComponent},
 
@@ -21,6 +23,9 @@ const routes: Routes = [
   { path: 'nike', component: NikeComponent},
   { path: 'rebook', component: RebookComponent},
   { path: 'puma', component: PumaComponent},
+
+  //paginas de Admin
+  {path: 'admin', component: AdminIndexComponent},
   
 ];
 
