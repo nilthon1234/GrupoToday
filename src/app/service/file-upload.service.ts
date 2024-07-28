@@ -6,6 +6,7 @@ import { Zapatilla } from '../interface/zapatilla';
 import { Categoria } from '../interface/categoria';
 import { Marca } from '../interface/marca';
 import { Modelo } from '../interface/modelo';
+import { Persona } from '../interface/persona';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,8 @@ export class FileUploadService {
   private cateUrl = 'http://localhost:8080/categoria';
   private marUrl = 'http://localhost:8080/marca';
   private modeUrl = 'http://localhost:8080/modelo'
+  private personaUrl = 'http://localhost:8080/persona'
+  private adminUrl = 'http://localhost:8080/admin'
 
   constructor(private http: HttpClient) {}
   /*addZapatilla(zapatilla: Zapatilla, file: File): Observable<any> {
@@ -46,4 +49,11 @@ export class FileUploadService {
   listAllMode(): Observable<Modelo[]>{
     return this.http.get<Modelo[]>(`${this.modeUrl}/list-all`);
   }
+  listAllPersonas(): Observable<Persona[]>{
+    return this.http.get<Persona[]>(`${this.personaUrl}/list-all`);
+  }
+  detalleId(id: number): Observable<Categoria>{
+    return this.http.get<Categoria>(`${this.apiUrl}/${id}`);
+  }
+
 }

@@ -6,6 +6,7 @@ import { Categoria } from '../interface/categoria';
 import { Marca } from '../interface/marca';
 import { Modelo } from '../interface/modelo';
 import { error } from 'console';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-admin-index',
@@ -49,10 +50,11 @@ export class AdminIndexComponent implements OnInit {
   constructor(
 
     private fileUploadService: FileUploadService,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private router: Router) { }
 
   ngOnInit(): void {
-    this.liscate();
+    
     this.listMarcas();
     this.listModelo();
 
@@ -69,17 +71,7 @@ export class AdminIndexComponent implements OnInit {
       }
     )
   }
-  liscate() {
-    this.fileUploadService.listAllCategories().subscribe(
-      (data: Categoria[]) => {
-        this.listCategoria = data;
-        this.getZapatillas();
-      },
-      (error) => {
-        console.error('Error:', error);
-      }
-    );
-  }
+  
   listModelo() {
     this.fileUploadService.listAllMode().subscribe(
       (myData: Modelo[]) =>{
@@ -149,6 +141,10 @@ export class AdminIndexComponent implements OnInit {
         }
       );
     }
+  }
+
+  verDetalles(id: number) {
+    this.router.navigate(['/zapatilla-detalle', id]);
   }
 
   /*onFileChange(event: any) {

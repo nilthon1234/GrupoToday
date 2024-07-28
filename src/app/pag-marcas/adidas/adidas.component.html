@@ -26,6 +26,8 @@
               </p>
               <p class="card-text">Precio: {{ zapatilla.precioZapatilla }}</p>
               <p class="card-text">Stock: {{ zapatilla.stockZapatilla }}</p>
+              <p class="card-text">{{zapatilla.imagenZapatilla}}</p>
+              <p class="card-text"><img [src]="zapatilla.urlImg" alt="{{zapatilla.imagenZapatilla}}" width="50"></p>
             </div>
           </div>
         </div>

@@ -18,6 +18,9 @@ import { provideHttpClient, withFetch} from '@angular/common/http';
 import { PumaComponent } from './pag-marcas/puma/puma.component';
 import { AdminIndexComponent } from './admin-index/admin-index.component';
 import { FormsModule } from '@angular/forms';
+import { DetalleComponent } from './admin-index/detalle/detalle.component';
+import { Router, RouterModule } from '@angular/router';
+import { AgregarComponent } from './admin-index/agregar/agregar.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import { FormsModule } from '@angular/forms';
     AdidasComponent,
     PumaComponent,
     AdminIndexComponent,
+    DetalleComponent,
+    AgregarComponent,
   ],
   imports: [
     BrowserModule,

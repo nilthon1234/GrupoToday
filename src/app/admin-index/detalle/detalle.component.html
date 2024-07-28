@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles</title>
+   
+</head>
+<body>
+    <h1 class="title">Detalles de Zapatilla</h1>
+    <div class="card mb-3"  style="max-width: 740px;">
+        <div class="row g-0">
+          <div class="img" *ngIf="zapatilla">
+            <img [src]="zapatilla.urlImg" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">{{zapatilla?.nombreZapatilla}}</h5>
+              <p class="card-text"><strong>ID:</strong> {{zapatilla?.idZapatilla}}</p>
+              <p class="card-text"><strong>Descripcion:</strong> {{zapatilla?.descriptionZapatilla}}</p>
+              <p class="card-text"><strong>Marca:</strong> {{zapatilla?.marcaZapatilla}}</p>
+              <p class="card-text"><strong>Modelo:</strong> {{zapatilla?.nombreModeloZapatilla}}</p>
+              <p class="card-text"><strong>Administrador:</strong> {{zapatilla?.gmailAdmin}}</p>
+              <p class="card-text"><strong>Precio:</strong> {{zapatilla?.precioZapatilla}}</p>
+              <p class="card-text"><strong>Stock:</strong> {{zapatilla?.stockZapatilla}}</p>
+              <p class="card-text"><strong>Categoria:</strong> {{zapatilla?.nombreCategoria}}</p>
+              <p class="card-text"><strong>Tipo:</strong> {{zapatilla?.nombrePersonaZapatilla}}</p>
+              <p class="card-text"></p>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+</html>

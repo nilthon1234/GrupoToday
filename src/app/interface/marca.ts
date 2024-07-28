@@ -5,4 +5,6 @@ export interface Marca {
     descriptionZapatilla: string;
     stockZapatilla:       string;
     precioZapatilla:      string;
+    imagenZapatilla:      string;
+    urlImg:               string;
 }
