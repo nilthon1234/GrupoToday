@@ -1,7 +1,19 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" routerLink="/admin">Administrador-Index</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
@@ -15,59 +27,10 @@
     </div>
   </nav>
 
+  <button style="position: fixed; top: 20;" type="button" class="btn btn-primary" routerLink="/add">Registrar
+    Zapatilla</button>
 
-
-
-  <!-- 
-<div class="container">
-  <h2>Registrar Zapatilla</h2>
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="nombreZapatilla">Nombre</label>
-      <input type="text" id="nombreZapatilla" [(ngModel)]="zapatilla.nombreZapatilla" name="nombreZapatilla" class="form-control" required>
-    </div>
-    <div class="form-group">
-      <label for="descripcionZapatilla">Descripción</label>
-      <input type="text" id="descripcionZapatilla" [(ngModel)]="zapatilla.descripcionZapatilla" name="descripcionZapatilla" class="form-control" required>
-    </div>
-    <div class="form-group">
-      <label for="precioZapatilla">Precio</label>
-      <input type="text" id="precioZapatilla" [(ngModel)]="zapatilla.precioZapatilla" name="precioZapatilla" class="form-control" required>
-    </div>
-    <div class="form-group">
-      <label for="stockZapatilla">Stock</label>
-      <input type="text" id="stockZapatilla" [(ngModel)]="zapatilla.stockZapatilla" name="stockZapatilla" class="form-control" required>
-    </div>
-    <div class="form-group">
-      <label for="file">Imagen</label>
-      <input type="file" id="file" (change)="onFileChange($event)" class="form-control" required>
-    </div>
-    <div class="form-group">
-      <label for="idAdminZapatillas">ID Administrador</label>
-      <input type="number" id="idAdminZapatillas" [(ngModel)]="zapatilla.idAdminZapatillas" name="idAdminZapatillas" class="form-control" required>
-    </div>
-    <div class="form-group">
-      <label for="idModeloZapatilla">ID Modelo</label>
-      <input type="number" id="idModeloZapatilla" [(ngModel)]="zapatilla.idModeloZapatilla" name="idModeloZapatilla" class="form-control" required>
-    </div>
-    <div class="form-group">
-      <label for="idCategoriaZapatilla">ID Categoría</label>
-      <input type="number" id="idCategoriaZapatilla" [(ngModel)]="zapatilla.idCategoriaZapatilla" name="idCategoriaZapatilla" class="form-control" required>
-    </div>
-    <div class="form-group">
-      <label for="idMarcaZapatilla">ID Marca</label>
-      <input type="number" id="idMarcaZapatilla" [(ngModel)]="zapatilla.idMarcaZapatilla" name="idMarcaZapatilla" class="form-control" required>
-    </div>
-    <div class="form-group">
-      <label for="idPersonaZapatilla">ID Persona</label>
-      <input type="number" id="idPersonaZapatilla" [(ngModel)]="zapatilla.idPersonaZapatilla" name="idPersonaZapatilla" class="form-control" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Registrar Zapatilla</button>
-  </form>
-</div>-->
-  <button style="position: fixed; top: 20;" type="button" class="btn btn-primary" routerLink="/add" >Registrar Zapatilla</button>
-
-<br><br>
+  <br><br>
   <table class="table table-dark">
     <thead>
       <tr style="position: sticky; top: 0;">
@@ -98,12 +61,15 @@
         <td><img [src]="z.urlImg" alt="{{z.nombreZapatilla}}" width="50"></td>
         <td>
           <button type="button" class="btn btn-success">Editar</button>
-          <span style="position: relative;" >&nbsp;</span>
-          <button type="button" class="btn btn-danger">Eliminar</button>
           <span style="position: relative;">&nbsp;</span>
-          <button type="button" class="btn btn-primary" (click)="verDetalles(z.idZapatilla!)" >Detalle</button>
+          <button  (click)="eliminarZapatilla(z.idZapatilla!)" type="button" class="btn btn-danger">Eliminar</button>
+          <span style="position: relative;">&nbsp;</span>
+          <button type="button" class="btn btn-primary" (click)="verDetalles(z.idZapatilla!)">Detalle</button>
         </td>
       </tr>
     </tbody>
   </table>
-  
+
+</body>
+
+</html>

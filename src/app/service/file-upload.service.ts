@@ -20,14 +20,7 @@ export class FileUploadService {
   private adminUrl = 'http://localhost:8080/admin'
 
   constructor(private http: HttpClient) {}
-  /*addZapatilla(zapatilla: Zapatilla, file: File): Observable<any> {
-    const formData: FormData = new FormData();
-    formData.append('file', file);
-    formData.append('zapatillaDto', JSON.stringify(zapatilla));
-
-    return this.http.post(`${this.apiUrl}/add-zapatilla`, formData);
-  }*/
-
+  
   addZapatilla(zapatilla: Zapatilla, file: File): Observable<Zapatilla>{
     const formData: FormData = new FormData();
     formData.append('file', file);
@@ -54,6 +47,9 @@ export class FileUploadService {
   }
   detalleId(id: number): Observable<Categoria>{
     return this.http.get<Categoria>(`${this.apiUrl}/${id}`);
+  }
+  deleteZapatilla(id: number): Observable<Zapatilla>{
+    return this.http.delete<Zapatilla>(`${this.apiUrl}/eliminar/${id}`);
   }
 
 }

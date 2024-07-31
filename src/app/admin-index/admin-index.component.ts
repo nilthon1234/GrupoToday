@@ -15,19 +15,6 @@ import { Router } from '@angular/router';
 })
 export class AdminIndexComponent implements OnInit {
 
-  /*zapatilla: Zapatilla = {
-    nombreZapatilla: '',
-    descripcionZapatilla: '',
-    precioZapatilla: '',
-    stockZapatilla: '',
-    imagenZapatilla: '',
-    idAdminZapatillas: 0,
-    idModeloZapatilla: 0,
-    idCategoriaZapatilla: 0,
-    idMarcaZapatilla: 0,
-    idPersonaZapatilla: 0
-  };
-  file: File | null = null;*/
   MyDataZapatilla: Zapatilla[] = [];
   listCategoria: Categoria[] = [];
   myDataMarca: Marca[] = [];
@@ -46,6 +33,7 @@ export class AdminIndexComponent implements OnInit {
 
   };
   file: File | null = null;
+
 
   constructor(
 
@@ -146,27 +134,20 @@ export class AdminIndexComponent implements OnInit {
   verDetalles(id: number) {
     this.router.navigate(['/zapatilla-detalle', id]);
   }
-
-  /*onFileChange(event: any) {
-    this.file = event.target.files[0];
-  }
-
-  onSubmit() {
-    if (this.file) {
-      this.fileUploadService.addZapatilla(this.zapatilla, this.file).subscribe(
+  eliminarZapatilla(id: number) {
+    if (confirm('Estas seguro de eliminar la zapatilla?')) {
+      this.fileUploadService.deleteZapatilla(id).subscribe(
         (response) => {
-          console.log('Zapatilla Registrada:', response);
-          alert('Zapatilla Registrada en la base de datos');
+          console.log('Zapatilla Eliminada:', response);
+          this.getZapatillas();
+          this.toastr.success('message', 'EXITO');
         },
         (error) => {
           console.error('Error:', error);
-          alert('Ocurrió un error al registrar la zapatilla');
+          this.toastr.error('message', 'ERROR');
         }
       );
-    } else {
-      alert('Por favor, selecciona una imagen.');
     }
-  }*/
-
+  }
 
 }
