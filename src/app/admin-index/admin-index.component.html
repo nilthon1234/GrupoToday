@@ -1,75 +1,64 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-
-<body>
-
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container-fluid">
-      <a class="navbar-brand" routerLink="/admin">Administrador-Index</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
-        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
-          <a class="nav-link" href="#">Features</a>
-          <a class="nav-link" href="#">Pricing</a>
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </div>
+  
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/admin">Administrador-Index</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" routerLink="/mantenimiento">Mantenimiento</a>
+        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
       </div>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <button style="position: fixed; top: 20;" type="button" class="btn btn-primary" routerLink="/add">Registrar
-    Zapatilla</button>
 
-  <br><br>
-  <table class="table table-dark">
-    <thead>
-      <tr style="position: sticky; top: 0;">
-        <th scope="col">ID</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Precio</th>
-        <th scope="col">Stock</th>
-        <th scope="col">Administrador</th>
-        <th scope="col">Categoria</th>
-        <th scope="col">Marca</th>
-        <th scope="col">Modelo</th>
-        <th scope="col">Tipo Persona</th>
-        <th scope="col">Imagen</th>
-        <th scope="col">Accion</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr class="table-active" *ngFor="let z of MyDataZapatilla">
-        <td>{{z.idZapatilla}}</td>
-        <td>{{z.nombreZapatilla}}</td>
-        <td>{{z.precioZapatilla}}</td>
-        <td>{{z.stockZapatilla}}</td>
-        <td>{{z.idAdminZapatillas}}</td>
-        <td>{{(z.categoria?.nombreCategoria)}}</td>
-        <td>{{z.marca?.marcaZapatilla}}</td>
-        <td>{{z.modelo?.idModeloZapatilla}}</td>
-        <td>{{z.idPersonaZapatilla}}</td>
-        <td><img [src]="z.urlImg" alt="{{z.nombreZapatilla}}" width="50"></td>
-        <td>
-          <button type="button" class="btn btn-success">Editar</button>
-          <span style="position: relative;">&nbsp;</span>
-          <button  (click)="eliminarZapatilla(z.idZapatilla!)" type="button" class="btn btn-danger">Eliminar</button>
-          <span style="position: relative;">&nbsp;</span>
-          <button type="button" class="btn btn-primary" (click)="verDetalles(z.idZapatilla!)">Detalle</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
 
-</body>
 
-</html>
+<button style="position: fixed; top: 20;" type="button" class="btn btn-primary" routerLink="/add" >Registrar Zapatilla</button>
+
+<br><br>
+<table class="table table-dark">
+  <thead>
+    <tr style="position: sticky; top: 0;">
+      <th scope="col">ID</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Precio</th>
+      <th scope="col">Stock</th>
+      <th scope="col">Administrador</th>
+      <th scope="col">Categoria</th>
+      <th scope="col">Marca</th>
+      <th scope="col">Modelo</th>
+      <th scope="col">Tipo Persona</th>
+      <th scope="col">Imagen</th>
+      <th scope="col">Accion</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-active" *ngFor="let z of MyDataZapatilla">
+      <td>{{z.idZapatilla}}</td>
+      <td>{{z.nombreZapatilla}}</td>
+      <td>{{z.precioZapatilla}}</td>
+      <td>{{z.stockZapatilla}}</td>
+      <td>{{z.idAdminZapatillas}}</td>
+      <td>{{(z.idCategoriaZapatilla)}}</td>
+      <td>{{z.idMarcaZapatilla}}</td>
+      <td>{{z.idModeloZapatilla}}</td>
+      <td>{{z.idPersonaZapatilla}}</td>
+      <td><img [src]="z.urlImg" alt="{{z.imagenZapatilla}}" width="50"></td>
+      <td>
+        <button type="button" class="btn btn-success" (click)="editarZapatilla(z.idZapatilla!)">Editar</button>
+        <span style="position: relative;" >&nbsp;</span>
+        <button (click)="eliminarZapatilla(z.idZapatilla!)" type="button" class="btn btn-danger">Eliminar</button>
+        <span style="position: relative;">&nbsp;</span>
+        <button type="button" class="btn btn-primary" (click)="verDetalles(z.idZapatilla!)" >Detalle</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+

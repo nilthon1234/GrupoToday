@@ -19,20 +19,6 @@ export class AdminIndexComponent implements OnInit {
   listCategoria: Categoria[] = [];
   myDataMarca: Marca[] = [];
   myDataModelo: Modelo[] = [];
-  zapatilla: Zapatilla = {
-    nombreZapatilla: '',
-    descripcionZapatilla: '',
-    precioZapatilla: '',
-    stockZapatilla: '',
-    imagenZapatilla: '',
-    idAdminZapatillas: 0,
-    idModeloZapatilla: 0,
-    idCategoriaZapatilla: 0,
-    idMarcaZapatilla: 0,
-    idPersonaZapatilla: 0,
-
-  };
-  file: File | null = null;
 
 
   constructor(
@@ -71,39 +57,13 @@ export class AdminIndexComponent implements OnInit {
       }
     )
   }
-  assigMarcaName(){
-    this.MyDataZapatilla.forEach(zapatilla => {
-      const marca = this.myDataMarca.find( m => m.idMarcaZapatilla === zapatilla.idMarcaZapatilla );
-    if(marca){
-      zapatilla.marca = marca;
-    }
-    });
-  }
-
-  assignCategoryNames() {
-    this.MyDataZapatilla.forEach(zapatilla => {
-      const categoria = this.listCategoria.find(c => c.idCategoria === zapatilla.idCategoriaZapatilla);
-      if (categoria) {
-        zapatilla.categoria = categoria;
-      }
-    });
-  }
-  assignModeloName() {
-    this.MyDataZapatilla.forEach(zapatilla =>{
-      const modelo = this.myDataModelo.find(m => m.idModeloZapatilla === zapatilla.idModeloZapatilla);
-      if(modelo){
-        zapatilla.modelo = modelo;
-      }
-    })
-  }
+  
+  
 
   getZapatillas() {
     this.fileUploadService.getZapatilla().subscribe(
       (data: Zapatilla[]) => {
         this.MyDataZapatilla = data;
-        this.assignCategoryNames();
-        this.assigMarcaName();
-        this.assignModeloName();
       },
       (error) => {
         console.error('Error:', error);
@@ -111,43 +71,25 @@ export class AdminIndexComponent implements OnInit {
     );
   }
 
-  onFileChange(event: any) {
-    this.file = event.target.Files[0];
-  }
-
-  onSubmit() {
-    if (this.file) {
-      this.fileUploadService.addZapatilla(this.zapatilla, this.file).subscribe(
-        (response) => {
-          console.log('Zapatilla Registrada:', response);
-          this.toastr.success('message', 'EXITO');
-
-        },
-        (error) => {
-          console.error('Error:', error);
-          this.toastr.error('message', 'ERROR');
-        }
-      );
-    }
-  }
+  
 
   verDetalles(id: number) {
     this.router.navigate(['/zapatilla-detalle', id]);
   }
-  eliminarZapatilla(id: number) {
-    if (confirm('Estas seguro de eliminar la zapatilla?')) {
+  eliminarZapatilla(id: number): void{
       this.fileUploadService.deleteZapatilla(id).subscribe(
         (response) => {
-          console.log('Zapatilla Eliminada:', response);
+          this.toastr.success('Se Elimino una Zapatilla','EXITO');
           this.getZapatillas();
-          this.toastr.success('message', 'EXITO');
         },
         (error) => {
-          console.error('Error:', error);
-          this.toastr.error('message', 'ERROR');
+          this.toastr.error(error.error.message, 'ERROR');
         }
       );
-    }
+    
+  }
+  editarZapatilla(id: number) {
+    this.router.navigate(['/edit', +id]);
   }
 
 }

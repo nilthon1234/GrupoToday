@@ -1,0 +1,89 @@
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.table-conteiner{
+    display: flex;/** mostrar doblado*/
+    justify-content: space-around;/**AL rededor*/
+}
+.table{
+    border-collapse: collapse;
+    width: 33%;/**ancho*/
+    margin: 10px;/**margerde arriba del cuadro de la tabla*/
+}
+
+.table th, .table td{
+    border: 1px solid black;
+    
+}
+.table th, .table td {
+    padding: 8px; /**rellono*/
+    text-align: left; 
+}
+.table-light {
+    background-color: #f9f9f9;
+}
+/**BOTONES AGREGAR*/
+/* Añadir estilo básico al contenedor del formulario */
+.form-container {
+    position: sticky;
+    top: 60px;
+    display: flex; /*los hilos se mantendran todo al ancho y alto del contenedor*/
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #2cdfa31a;
+  }
+  
+  /* cuadro de formulario */
+  .form-box {
+    width: 30%; /* ajusta el ancho a tu gusto */
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(72, 229, 156, 0.1);
+  }
+  
+  /* espacio entre los formularios. */
+  .form-box + .form-box {
+    margin-left: 20px;
+  }
+  
+  /*  etiquetas y entradas del formulario */
+  .form-label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  /* boton */
+  .btn.btn-primary {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #020c14;
+    border-color: #2e6da4;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn.btn-primary:hover {
+    background-color: #23527c;
+    border-color: #1d4e7a;
+  }

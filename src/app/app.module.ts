@@ -17,10 +17,11 @@ import { AdidasComponent } from './pag-marcas/adidas/adidas.component';
 import { provideHttpClient, withFetch} from '@angular/common/http';
 import { PumaComponent } from './pag-marcas/puma/puma.component';
 import { AdminIndexComponent } from './admin-index/admin-index.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DetalleComponent } from './admin-index/detalle/detalle.component';
 import { Router, RouterModule } from '@angular/router';
 import { AgregarComponent } from './admin-index/agregar/agregar.component';
+import { CrudMantenimientoComponent } from './admin-index/crud-mantenimiento/crud-mantenimiento.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AgregarComponent } from './admin-index/agregar/agregar.component';
     AdminIndexComponent,
     DetalleComponent,
     AgregarComponent,
+    CrudMantenimientoComponent,
   ],
   imports: [
     BrowserModule,
@@ -43,8 +45,16 @@ import { AgregarComponent } from './admin-index/agregar/agregar.component';
 
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
 
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot(
+      {
+        positionClass: 'toast-bottom-right',
+        timeOut: 5000,
+        progressBar: true,
+        preventDuplicates: true,
+      }
+    ),
     BrowserAnimationsModule,
   ],
   providers: [

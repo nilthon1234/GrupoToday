@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/admin">Administrador-Index</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"
+        aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" href="#">Mantenimiento</a>
+          <a class="nav-link" href="#">Features</a>
+          <a class="nav-link" href="#">Pricing</a>
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="form-container">
+    <div class="form-box">
+      <form class="row g-3" [formGroup]="myCateFormato">
+        <div class="mb-3">
+          <label for="nombreCategoria" class="form-label">NOMBRE CATEGORIA</label>
+          <input type="text" class="form-control" id="nombreCategoria" name="nombreCategoria" placeholder="nombre" formControlName="nombreCategoria">
+          <button type="submit" (click)="agregarCategoria()" type="sumit" class="btn btn-primary">{{editModeCate ? 'Actualizar' : 'Agregar'}}</button>
+        </div>
+
+      </form>
+
+    </div>
+    <div class="form-box">
+      <form class="mb-3" [formGroup]="Myformato">
+        <div class="mb-3">
+          <label for="marcaZapatilla" class="form-label">NOMBRE MARCA</label>
+          <input type="text" class="form-control" id="marcaZapatilla" name="marcaZapatilla" placeholder="nombre De La Marca" formControlName="marcaZapatilla">
+          <button (click)="agregarMarca()" type="submit" class="btn btn-primary">{{editMode ? 'Actualizar' : 'Agregar'}}</button>
+        </div>
+
+      </form>
+
+    </div>
+    <div class="form-box">
+      <form class="mb-3" [formGroup]="myModeFormato">
+        <div class="mb-3">
+          <label for="nombreModeloZapatilla" class="form-label">NOMBRE MODELO</label>
+          <input type="nombre" class="form-control" id="nombreModeloZapatilla" name="nombreModeloZapatilla" placeholder="nombre" formControlName="nombreModeloZapatilla">
+          <button (click)="agregarModelo()" type="submit" class="btn btn-primary">{{editModeModelo ? 'Actualizar' : 'Agregar'}}</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+
+  <div class="table-conteiner" >
+    <table class="table table-dark">
+      <thead>
+        <tr style="position: sticky; top: 0;">
+          <th>Id</th>
+          <th>Nombre Categoria</th>
+          <th>Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-active" *ngFor=" let c of cateZapatilla ">
+          <td>{{c.idCategoria}}</td>
+          <td>{{c.nombreCategoria}}</td>
+          <td>
+            <button (click)="redirecCate(c)" class="btn btn-success">Editar</button>
+            <span style="position: relative;">&nbsp;</span>
+            <button (click)="eliminarCategorias(c.idCategoria!)" class="btn btn-danger" type="button">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table class="table table-dark">
+      <thead>
+        <tr  style="position: sticky; top: 0;">
+          <th>Id</th>
+          <th>Nombre Marca</th>
+          <th>Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="table-active"  *ngFor="let m of marca">
+          <td>{{m.idMarcaZapatilla}}</td>
+          <td>{{m.marcaZapatilla}}</td>
+          <td>
+            <button (click)="redirecEditar(m)" class="btn btn-success" type="button">Editar</button>
+            <span style="position: relative;">&nbsp;</span>
+            <button (click)="eliminarMarca(m.idMarcaZapatilla!)" type="button" class="btn btn-danger">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <table class="table table-dark">
+      <thead>
+        <tr style="position: sticky; top: 0;">
+          <th>Id</th>
+          <th>Nombre Modelo</th>
+          <th>Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  class="table-active" *ngFor="let m of modelo">
+          <td>{{m.idModeloZapatilla}}</td>
+          <td>{{m.nombreModeloZapatilla}}</td>
+          <td>
+            <button (click)="redirectModelo(m)" class="btn btn-success" type="button">Editar</button>
+            <span style="position: relative;">&nbsp;</span>
+            <button (click)="eliminarModelo(m.idModeloZapatilla!)" class="btn btn-danger" type="button">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+</body>
+</html>

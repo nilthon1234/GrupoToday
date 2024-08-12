@@ -1,6 +1,5 @@
-  
 <div class="container">
-  <h2>Registrar Zapatilla</h2>
+  <h2>{{ editar ? 'Editar Zapatilla' : 'Agregar Zapatilla' }}</h2>
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="nombreZapatilla">Nombre</label>
@@ -20,43 +19,50 @@
     </div>
     <div class="form-group">
       <label for="file">Imagen</label>
-      <input type="file" id="file" (change)="onFileChangue($event)" class="form-control" required>
+      <input type="file" id="file" (change)="onFileChangue($event)" class="form-control">
+      <small *ngIf="editar && !file">Deje en blanco para mantener la imagen actual</small>
     </div>
+    <div *ngIf="editar && zapatilla.urlImg" class="form-group">
+      <label>Imagen Actual:</label>
+      <img [src]="zapatilla.urlImg" alt="Imagen de la zapatilla" class="img-thumbnail" style="max-width: 200px; max-height: 200px;">
+      <p>Nombre de la imagen: {{ imagenNombre }}</p> <!-- Mostrar el nombre de la imagen -->
+    </div>
+    
     <div class="form-group">
-      <label for="idAdminZapatillas">ID Administrador</label>
+      <label for="idAdminZapatillas">Administrador</label>
       <input type="number" id="idAdminZapatillas" [(ngModel)]="zapatilla.idAdminZapatillas" name="idAdminZapatillas" class="form-control" required>
     </div>
     <div class="form-group">
       <label for="idModeloZapatilla">Modelo</label>
-      <select name="idModeloZapatilla" id="idModeloZapatilla" [(ngModel)]="zapatilla.idModeloZapatilla" class="form-control" required="">
-          <option value="-1">Selecionar un Modelo</option>
-          <option *ngFor="let item of modelo" [value]="item.idModeloZapatilla">{{item.nombreModeloZapatilla}}</option>
-    </select>
+      <select name="idModeloZapatilla" id="idModeloZapatilla" [(ngModel)]="zapatilla.idModeloZapatilla" class="form-control" required>
+        <option value="-1">Seleccionar un Modelo</option>
+        <option *ngFor="let item of modelo" [value]="item.idModeloZapatilla">{{ item.nombreModeloZapatilla }}</option>
+      </select>
     </div>
     <div class="form-group">
-        <label for="idCategoriaZapatilla">Categoría</label>
-        <select name="idCategoriaZapatilla" id="idCategoriaZapatilla" [(ngModel)]="zapatilla.idCategoriaZapatilla" class="form-control" required>
-            <option value="-1">Seleccione una categoria</option>
-            <option *ngFor="let categoria of categorias" [value]="categoria.idCategoria">
-                {{ categoria.nombreCategoria }}
-            </option>
-        </select>
+      <label for="idCategoriaZapatilla">Categoría</label>
+      <select name="idCategoriaZapatilla" id="idCategoriaZapatilla" [(ngModel)]="zapatilla.idCategoriaZapatilla" class="form-control" required>
+        <option value="-1">Seleccione una categoría</option>
+        <option *ngFor="let categoria of categorias" [value]="categoria.idCategoria">
+          {{ categoria.nombreCategoria }}
+        </option>
+      </select>
     </div>
     
     <div class="form-group">
       <label for="idMarcaZapatilla">Marca</label>
-      <select name="idMarcaZapatilla" id="idMarcaZapatilla" [(ngModel)]="zapatilla.idMarcaZapatilla" class="form-control " required>
-      <option value="-1">Selecionar Una Marca</option>
-      <option *ngFor="let item of marcas" [value]="item.idMarcaZapatilla">{{item.marcaZapatilla}}</option>
-    </select>
+      <select name="idMarcaZapatilla" id="idMarcaZapatilla" [(ngModel)]="zapatilla.idMarcaZapatilla" class="form-control" required>
+        <option value="-1">Seleccionar Una Marca</option>
+        <option *ngFor="let item of marcas" [value]="item.idMarcaZapatilla">{{ item.marcaZapatilla }}</option>
+      </select>
     </div>
     <div class="form-group">
       <label for="idPersonaZapatilla">ID Persona</label>
       <select name="idPersonaZapatilla" id="idPersonaZapatilla" [(ngModel)]="zapatilla.idPersonaZapatilla" class="form-control" required>
-        <option value="-1">Selecionar una Tipo de Persona</option>
-        <option *ngFor="let persona of persona" [value]="persona.idPersonaZapatilla">{{persona.nombrePersonaZapatilla}}</option>
+        <option value="-1">Seleccionar un Tipo de Persona</option>
+        <option *ngFor="let persona of persona" [value]="persona.idPersonaZapatilla">{{ persona.nombrePersonaZapatilla }}</option>
       </select>
     </div>
-    <button type="submit" class="btn btn-primary">Registrar Zapatilla</button>
+    <button type="submit" class="btn btn-primary">{{ editar ? 'Actualizar' : 'Agregar Zapatilla' }}</button>
   </form>
 </div>

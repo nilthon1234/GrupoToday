@@ -1,4 +1,4 @@
 export interface Modelo {
-    idModeloZapatilla:     number;
+    idModeloZapatilla?:     number;
     nombreModeloZapatilla: string;
 }

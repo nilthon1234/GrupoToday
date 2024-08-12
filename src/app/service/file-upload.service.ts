@@ -28,6 +28,17 @@ export class FileUploadService {
 
     return this.http.post<Zapatilla>(`${this.apiUrl}/add-zapatilla`, formData);
   }
+  updateZapatilla(id: number, zapatilla: Zapatilla, file?: File): Observable<Zapatilla> {
+  const formData = new FormData();
+  formData.append('objectZapatillaDto', new Blob([JSON.stringify(zapatilla)], { type: 'application/json' }));
+
+  if (file) {
+    formData.append('file', file);
+  }
+
+  return this.http.put<Zapatilla>(`${this.apiUrl}/update-zapatilla/${id}`, formData);
+}
+
   getZapatilla(): Observable<Zapatilla[]> {
     return this.http.get<Zapatilla[]>(`${this.apiUrl}/list-zapatilla`);
   }
@@ -49,7 +60,11 @@ export class FileUploadService {
     return this.http.get<Categoria>(`${this.apiUrl}/${id}`);
   }
   deleteZapatilla(id: number): Observable<Zapatilla>{
-    return this.http.delete<Zapatilla>(`${this.apiUrl}/eliminar/${id}`);
+    return this.http.delete<Zapatilla>(`${this.apiUrl}/delete/${id}`);
+  }
+
+  buscarId(id: number): Observable<Zapatilla>{
+    return this.http.get<Zapatilla>(`${this.apiUrl}/buscar/${id}`);
   }
 
 }

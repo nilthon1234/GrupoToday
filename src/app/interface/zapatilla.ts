@@ -26,4 +26,5 @@ export interface Zapatilla {
     admin?: Administrador;
     
     
+    
 }

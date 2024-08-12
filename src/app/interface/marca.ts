@@ -1,10 +1,12 @@
 export interface Marca {
-    idMarcaZapatilla:     number;
-    nombreZapatilla:      string;
+    idMaraca?: number;
+    idMarcaZapatilla?:     number;
+    nombreZapatilla?:      string;
+    nombreMarca?: string;
     marcaZapatilla:       string;
-    descriptionZapatilla: string;
-    stockZapatilla:       string;
-    precioZapatilla:      string;
-    imagenZapatilla:      string;
-    urlImg:               string;
+    descriptionZapatilla?: string;
+    stockZapatilla?:       string;
+    precioZapatilla?:      string;
+    imagenZapatilla?:      string;
+    urlImg?:               string;
 }
