@@ -25,6 +25,9 @@
               <p class="card-text">Precio: {{ zapatilla.precioZapatilla }}</p>
               <p class="card-text">Stock: {{ zapatilla.stockZapatilla }}</p>
               <p><img [src]="zapatilla.urlImg" alt="{{zapatilla.imagenZapatilla}}" width="100px"></p>
+              <label for="">Cantidad</label>
+              <input #cantidad type="number" class="form-control" min="1" value="1" >
+              <p><button class="btn btn-dark" type="button" (click)="agregarCarrito(zapatilla, cantidad)">Agregar al carrito</button></p>
             </div>
           </div>
         </div>

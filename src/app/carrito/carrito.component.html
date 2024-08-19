@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+
   <nav class="navbar navbar-dark bg-dark fixed-top">
     <div class="container">
       <h1 class="company-name">
@@ -90,6 +83,36 @@
       </div>
     </div>
   </nav>
-
-</body>
-</html>
+  
+  <div class="container">
+    <h1>Carrito</h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>ID Zapatilla</th>
+          <th>Nombre Zapatilla</th>
+          <th>Marca</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Imagen</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let producto of carrito; let i = index">
+          <td>{{ producto.idZapatilla }}</td>
+          <td>{{ producto.nombreZapatilla }}</td>
+          <td>{{ producto.marca }}</td>
+          <td>{{ producto.precioZapatilla }}</td>
+          <td>
+            <form [formGroup]="cantidadForm">
+              <input type="number" formControlName="cantidad" [(ngModel)]="producto.cantidad" (ngModelChange)="actualizarCantidad(i)">
+            </form>
+          </td>
+          <td><img [src]="producto.img" alt="{{producto.nombreZapatilla}}" width="100px"></td>
+          <td>{{ producto.precioZapatilla * producto.cantidad }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

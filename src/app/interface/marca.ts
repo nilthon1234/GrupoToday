@@ -1,4 +1,5 @@
 export interface Marca {
+    idZapatilla?: number;
     idMaraca?: number;
     idMarcaZapatilla?:     number;
     nombreZapatilla?:      string;
@@ -6,7 +7,7 @@ export interface Marca {
     marcaZapatilla:       string;
     descriptionZapatilla?: string;
     stockZapatilla?:       string;
-    precioZapatilla?:      string;
+    precioZapatilla?:      number;
     imagenZapatilla?:      string;
     urlImg?:               string;
 }
