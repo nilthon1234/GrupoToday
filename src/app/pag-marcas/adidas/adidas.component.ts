@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { Marca } from '../../interface/marca';
 import { MarcasService } from '../../service/marcas.service';
 import { VentaBoletaService } from '../../service/venta-boleta.service';
-import { Carrito } from '../../interface/carrito';
 import { ToastrService } from 'ngx-toastr';
 import { Detalle } from '../../interface/venta-boleta';
 
