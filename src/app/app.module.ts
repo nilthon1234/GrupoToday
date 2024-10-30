@@ -22,6 +22,7 @@ import { DetalleComponent } from './admin-index/detalle/detalle.component';
 import { Router, RouterModule } from '@angular/router';
 import { AgregarComponent } from './admin-index/agregar/agregar.component';
 import { CrudMantenimientoComponent } from './admin-index/crud-mantenimiento/crud-mantenimiento.component';
+import { NavIndexComponent } from './nav-index/nav-index.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { CrudMantenimientoComponent } from './admin-index/crud-mantenimiento/cru
     DetalleComponent,
     AgregarComponent,
     CrudMantenimientoComponent,
+    NavIndexComponent,
   ],
   imports: [
     BrowserModule,

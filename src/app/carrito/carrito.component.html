@@ -1,118 +1,79 @@
-
-  <nav class="navbar navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <h1 class="company-name">
-        <span class="company-name-part1">Grupo</span>
-        <span class="company-name-part2">Today</span>
-      </h1>
-      <a class="navbar-brand" routerLink="/" routerLinkActive="">Index</a>
-      <a class="navbar-brand" routerLink="/adidas" routerLinkActive="">Zapatillas</a>
-      <a class="navbar-brand" routerLink="/carrito" routerLinkActive="active-link">Carrito</a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="offcanvas"
-        data-bs-target="#offcanvasDarkNavbar"
-        aria-controls="offcanvasDarkNavbar"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div
-        class="offcanvas offcanvas-end text-bg-dark"
-        tabindex="-1"
-        id="offcanvasDarkNavbar"
-        aria-labelledby="offcanvasDarkNavbarLabel"
-      >
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
-            Dark offcanvas
-          </h5>
-          <button
-            type="button"
-            class="btn-close btn-close-white"
-            data-bs-dismiss="offcanvas"
-            aria-label="Close"
-          ></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a
-                class="nav-link active"
-                aria-current="page"
-                routerLink="/admin"
-                >Admin</a
-              >
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Dropdown
-              </a>
-              <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li>
-                  <hr class="dropdown-divider" />
-                </li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-          <form class="d-flex mt-3" role="search">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-success" type="submit">Search</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </nav>
-  
-  <div class="container">
-    <h1>Carrito</h1>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>ID Zapatilla</th>
-          <th>Nombre Zapatilla</th>
-          <th>Marca</th>
-          <th>Precio</th>
-          <th>Cantidad</th>
-          <th>Imagen</th>
-          <th>Subtotal</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let producto of carrito; let i = index">
-          <td>{{ producto.idZapatilla }}</td>
-          <td>{{ producto.nombreZapatilla }}</td>
-          <td>{{ producto.marca }}</td>
-          <td>{{ producto.precioZapatilla }}</td>
-          <td>
-            <form [formGroup]="cantidadForm">
-              <input type="number" formControlName="cantidad" [(ngModel)]="producto.cantidad" (ngModelChange)="actualizarCantidad(i)">
-            </form>
-          </td>
-          <td><img [src]="producto.img" alt="{{producto.nombreZapatilla}}" width="100px"></td>
-          <td>{{ producto.precioZapatilla * producto.cantidad }}</td>
-        </tr>
-      </tbody>
-    </table>
+<app-nav-index></app-nav-index>
+<form [formGroup]="ventaForm" (ngSubmit)="registrarVenta()">
+  <h2>Detalles de Venta</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Id Zapatilla</th>
+        <th>Zapatilla</th>
+        <th>Marca</th>
+        <th>Precio</th>
+        <th>Cantidad</th>
+        <th>Imagen</th>
+        <th>Subtotal</th>
+      </tr>
+    </thead>
+    <tbody formArrayName="detalles">
+      <tr *ngFor="let detalle of detalles.controls; let i = index" [formGroupName]="i">
+        <td>
+          <input type="text" formControlName="idZapatilla" readonly>
+        </td>
+        <td>
+          <input type="text" formControlName="nombreZapatilla" readonly>
+        </td>
+        <td>
+          <input type="text" formControlName="marcaZapatilla" readonly>
+        </td>
+        <td>
+          <input type="text" formControlName="precioZapatilla" readonly>
+        </td>
+        <td>
+          <input type="number" formControlName="cantidad">
+        </td>
+        <td>
+          <p>
+            <img [src]="detalle.get('img')?.value" alt="Zapatilla img" width="50">
+          </p>
+        </td>
+        <td>
+          {{detalles.at(i).get('precioZapatilla')?.value * detalles.at(i).get('cantidad')?.value | number: '1.2-2'}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div>
+    <h3>Total: {{ total | number: '1.2-2' }}</h3>
   </div>
-  
+  <div formGroupName="ventaDto">
+    <h2>Datos de Clientes</h2>
+    <div>
+      <label for="nombreCliente">Nombre</label>
+      <input id="nombreCliente" type="text" formControlName="nombreCliente">
+    </div>
+    <div>
+      <label for="apellidoCliente">Apellido</label>
+      <input id="apellidoCliente" type="text" formControlName="apellidoCliente">
+    </div>
+    <div>
+      <label for="gmailCliente">Gmail</label>
+      <input id="gmailCliente" type="email" formControlName="gmailCliente">
+    </div>
+    <div>
+      <label for="telefonoCliente">Telefono</label>
+      <input id="telefonoCliente" type="number" formControlName="telefonoCliente">
+    </div>
+    <div>
+      <label for="direccionCliente">Direccion Cliente</label>
+      <input id="direccionCliente" type="text" formControlName="direccionCliente">
+    </div>
+    <div>
+      <label for="idDepartamento">Departamento</label>
+      <select formControlName="idDepartamento" id="idDepartamento">
+        <option value="">Seleccionas Departamento</option>
+        <option *ngFor="let dp of depa" [value]="dp.idDepartamento">{{dp.nombreDepartamento}}</option>
+      </select>
+    </div>
+
+  </div>
+  <button type="submit" [disabled]="!ventaForm.valid">registrar Venta</button>
+</form>

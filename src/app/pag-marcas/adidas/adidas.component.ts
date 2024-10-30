@@ -4,7 +4,7 @@ import { Marca } from '../../interface/marca';
 import { MarcasService } from '../../service/marcas.service';
 import { VentaBoletaService } from '../../service/venta-boleta.service';
 import { ToastrService } from 'ngx-toastr';
-import { Detalle } from '../../interface/venta-boleta';
+import { DetalleDto } from '../../interface/venta-boleta';
 
 @Component({
   selector: 'app-adidas',
@@ -35,9 +35,9 @@ export class AdidasComponent implements OnInit {
   }
 
   agregarAlCarrito(producto: Marca, cantidad: HTMLInputElement) {
-    const carrito: Detalle = {
+    const carrito: DetalleDto = {
       idZapatilla: producto.idZapatilla!,
-      marca: producto.marcaZapatilla!,
+      marcaZapatilla: producto.marcaZapatilla!,
       nombreZapatilla: producto.nombreZapatilla!,
       precioZapatilla: producto.precioZapatilla!,
       img: producto.urlImg,

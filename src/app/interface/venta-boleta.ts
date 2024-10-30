@@ -1,15 +1,15 @@
 export interface VentaBoleta {
     ventaDto: VentaDto;
-    detalles: Detalle[];
+    detalles: DetalleDto[];
 }
 
-export interface Detalle {
+export interface DetalleDto {
     idZapatilla:     number;
     precioZapatilla: number;
     cantidad:        number;
     nombreZapatilla?: string;
     img?: string;
-    marca?: string;
+    marcaZapatilla?: string;
 }
 
 export interface VentaDto {
@@ -18,5 +18,5 @@ export interface VentaDto {
     gmailCliente:        string;
     telefonoCliente:     string;
     direccionCliente:    string;
-    departamentoCliente: number;
+    idDepartamento: number;
 }
